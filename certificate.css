@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Certificate CSS - Recreating Reference Image 4
+   ========================================================================== */
+
+.cert-viewer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.cert-viewer-backdrop.hidden {
+  display: none !important;
+}
+
+.cert-viewer-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Toolbar */
+.cert-viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cert-tool-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-cert-tool {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+.btn-cert-tool:hover {
+  background-color: #475569;
+}
+
+.btn-cert-tool.secondary {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-cert-tool.secondary:hover {
+  background-color: #2563eb;
+}
+
+.btn-cert-tool.primary {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.btn-cert-tool.primary:hover {
+  background-color: #059669;
+}
+
+/* Certificate Document Canvas / Sheet */
+.cert-sheet-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.certificate-document {
+  position: relative;
+  width: 960px;
+  height: 678px;
+  background-color: #ffffff;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  border-radius: 2px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cert-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Logo Section */
+.cert-header-logo-row {
+  margin-bottom: 20px;
+}
+
+.cert-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cert-mw-logo {
+  display: block;
+}
+
+.cert-brand-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #005f87;
+  letter-spacing: -0.3px;
+}
+
+.cert-brand-name sup {
+  font-size: 10px;
+}
+
+.cert-brand-divider {
+  font-size: 24px;
+  color: #005f87;
+  font-weight: 300;
+  margin: 0 4px;
+}
+
+.cert-brand-service {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  color: #005f87;
+}
+
+/* Certificate Main Title */
+.cert-main-title {
+  font-size: 34px;
+  font-weight: 400;
+  color: #111111;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+/* Recipient & Statement */
+.cert-recipient-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 22px;
+}
+
+.cert-completion-statement {
+  font-size: 18px;
+  color: #222222;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+
+.cert-completion-statement strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111111;
+}
+
+.cert-course-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 40px;
+}
+
+/* Footer Signature and Date */
+.cert-footer-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.cert-signature-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 240px;
+}
+
+.cert-signature-img {
+  width: 230px;
+  height: auto;
+  display: block;
+}
+
+.cert-date-col {
+  font-size: 16px;
+  color: #222222;
+  font-weight: 400;
+  padding-bottom: 8px;
+}
+
+/* Print Specific Rules */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+
+  .cert-viewer-backdrop,
+  .cert-viewer-container,
+  .cert-sheet-wrapper,
+  #certificate-printable-area,
+  #certificate-printable-area * {
+    visibility: visible !important;
+  }
+
+  .cert-viewer-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    padding: 0;
+  }
+
+  .certificate-document {
+    box-shadow: none;
+    width: 100% !important;
+    height: 100vh !important;
+    page-break-after: always;
+  }
+
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+}

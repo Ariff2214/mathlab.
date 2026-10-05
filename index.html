@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stateflow Onramp - MATLAB & Simulink Training</title>
+  <meta name="description" content="Learn the basics of Stateflow for representing supervisory control and complex decision logic with hands-on exercises and automated feedback.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-COAaLfCB.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-GzIf7kLr.css">
+</head>
+<body>
+  <div id="app">
+    <!-- TOP MATHWORKS NAVIGATION HEADER -->
+    <header class="mw-header">
+      <div class="mw-header-top">
+        <div class="mw-header-inner">
+          <div class="mw-brand-section">
+            <a href="#" class="mw-logo" title="MathWorks">
+              <!-- MathWorks Membrane SVG Logo -->
+              <svg class="mw-logo-icon" viewBox="0 0 40 40" width="28" height="28">
+                <path fill="#e05a00" d="M12,28 L2,38 L22,38 Z"/>
+                <path fill="#0076a8" d="M12,28 L38,12 L38,38 Z"/>
+                <path fill="#cb2026" d="M12,28 L22,2 L38,12 Z"/>
+                <path fill="#f7941d" d="M12,28 L2,38 L22,2 Z"/>
+              </svg>
+              <span class="mw-logo-text">MathWorks<sup>®</sup></span>
+            </a>
+            <nav class="mw-primary-nav">
+              <a href="#" class="mw-nav-link">MATLAB Help Center</a>
+              <a href="#" class="mw-nav-link">Community</a>
+              <a href="#" class="mw-nav-link active">Learning</a>
+            </nav>
+          </div>
+          <div class="mw-user-section">
+            <button class="btn-mw-matlab">MATLAB</button>
+            <div class="user-avatar" title="Abdul Ariff S">AS</div>
+            <button class="icon-btn" title="Search" aria-label="Search">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <button class="icon-btn" title="MathWorks Applications" aria-label="Applications">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <rect x="3" y="3" width="4" height="4" rx="0.5"/>
+                <rect x="10" y="3" width="4" height="4" rx="0.5"/>
+                <rect x="17" y="3" width="4" height="4" rx="0.5"/>
+                <rect x="3" y="10" width="4" height="4" rx="0.5"/>
+                <rect x="10" y="10" width="4" height="4" rx="0.5"/>
+                <rect x="17" y="10" width="4" height="4" rx="0.5"/>
+                <rect x="3" y="17" width="4" height="4" rx="0.5"/>
+                <rect x="10" y="17" width="4" height="4" rx="0.5"/>
+                <rect x="17" y="17" width="4" height="4" rx="0.5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mw-header-banner">
+        <div class="mw-header-inner">
+          <span class="mw-banner-title">Online Courses</span>
+        </div>
+      </div>
+
+      <div class="mw-header-sub">
+        <div class="mw-header-inner">
+          <nav class="mw-sub-nav">
+            <a href="#">Home</a>
+            <a href="#">My Courses</a>
+            <a href="#">Online Training Suite</a>
+            <div class="dropdown-link">
+              <a href="#">Documentation &amp; Support</a>
+              <span class="arrow-down">▼</span>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="mw-main-container">
+      
+      <!-- HERO COURSE CARD -->
+      <section class="mw-hero-card">
+        <div class="mw-hero-thumb">
+          <img src="./course-logo.png" alt="Stateflow Onramp Course Logo" class="mw-hero-thumb-img">
+        </div>
+
+        <div class="mw-hero-details">
+          <h1 class="mw-course-title">Stateflow Onramp</h1>
+          <div class="mw-hero-links">
+            <a href="#" id="link-share-course" class="mw-action-link">Share Course</a>
+            <span class="divider">|</span>
+            <a href="#" id="link-cert-report" class="mw-action-link">Certificate &amp; Progress Report</a>
+          </div>
+          <div id="hero-completed-text" class="mw-completed-text">COMPLETED</div>
+        </div>
+      </section>
+
+      <!-- TWO COLUMN COURSE CONTENT -->
+      <div class="mw-course-grid">
+        
+        <!-- LEFT COLUMN: Description & Modules -->
+        <div class="mw-grid-main">
+          <section class="mw-description-box">
+            <p class="mw-description-text">
+              Learn the basics of Stateflow<sup>®</sup> for representing supervisory control and complex decision logic. Use state machines and flow charts to efficiently model and simulate instantaneous changes in dynamic systems.
+            </p>
+          </section>
+
+          <section class="mw-modules-section">
+            <div class="mw-modules-header">
+              <h2>Course modules</h2>
+              <button id="btn-toggle-all-modules" class="btn-text-action">Expand All</button>
+            </div>
+
+            <!-- MODULE LIST CONTAINER -->
+            <div id="modules-list-container" class="mw-modules-list">
+              <!-- Modules rendered via JS -->
+            </div>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN: Sidebar Info -->
+        <aside class="mw-grid-sidebar">
+          
+          <!-- ABOUT THIS COURSE CARD -->
+          <div class="mw-sidebar-card">
+            <h3 class="sidebar-title">About this course</h3>
+            
+            <div class="course-video-thumb" id="video-preview-trigger">
+              <div class="video-overlay">
+                <span class="simulink-tag">SIMULINK</span>
+                <span class="stateflow-tag">STATEFLOW</span>
+                <div class="play-btn-circle">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="#333333">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <div class="video-car-graphic">
+                  <!-- Car icons graphic placeholder -->
+                  <svg viewBox="0 0 160 50" width="100%" height="40">
+                    <rect x="10" y="20" width="40" height="15" rx="3" fill="#666"/>
+                    <circle cx="20" cy="35" r="5" fill="#333"/>
+                    <circle cx="40" cy="35" r="5" fill="#333"/>
+                    <rect x="100" y="20" width="40" height="15" rx="3" fill="#666"/>
+                    <circle cx="110" cy="35" r="5" fill="#333"/>
+                    <circle cx="130" cy="35" r="5" fill="#333"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-meta-list">
+              <div class="meta-item">
+                <span class="meta-label">Format:</span>
+                <span class="meta-value link-text">Self-paced</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Length:</span>
+                <span class="meta-value">About 1.5 hours</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Language:</span>
+                <span class="meta-value">English <a href="#" class="meta-change">(change)</a></span>
+              </div>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <div class="prereq-section">
+              <h4 class="sub-sidebar-title">Recommended prerequisites</h4>
+              
+              <a href="#" class="prereq-card">
+                <div class="prereq-icon mat-blue">
+                  <svg viewBox="0 0 30 30" width="24" height="24">
+                    <path fill="#ffffff" d="M5,25 L25,5 L25,25 Z"/>
+                  </svg>
+                </div>
+                <span class="prereq-title">MATLAB Onramp</span>
+              </a>
+
+              <a href="#" class="prereq-card">
+                <div class="prereq-icon sim-orange">
+                  <svg viewBox="0 0 30 30" width="24" height="24">
+                    <rect x="5" y="8" width="8" height="8" fill="#ffffff"/>
+                    <rect x="17" y="14" width="8" height="8" fill="#ffffff"/>
+                    <line x1="13" y1="12" x2="17" y2="18" stroke="#ffffff" stroke-width="2"/>
+                  </svg>
+                </div>
+                <span class="prereq-title">Simulink Onramp</span>
+              </a>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <div class="features-section">
+              <h4 class="sub-sidebar-title">Features</h4>
+              <ul class="features-list">
+                <li>Hands-on exercises with automated feedback</li>
+                <li>Access to Simulink through your browser or desktop</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- AUTHORED BY CARD -->
+          <div class="mw-sidebar-card authored-card">
+            <h4 class="authored-heading">Authored By:</h4>
+            <div class="author-profile">
+              <div class="author-avatar-img">
+                <!-- SVG Avatar icon for Alisha Schor -->
+                <svg viewBox="0 0 100 100" width="56" height="56">
+                  <circle cx="50" cy="50" r="48" fill="#e8f0fe" stroke="#0076a8" stroke-width="2"/>
+                  <path d="M50,22 C40,22 34,29 34,39 C34,48 40,54 50,54 C60,54 66,48 66,39 C66,29 60,22 50,22 Z" fill="#3c4043"/>
+                  <path d="M50,18 C36,18 28,26 28,40 C28,48 30,52 32,56 C34,48 40,46 50,46 C60,46 66,48 68,56 C70,52 72,48 72,40 C72,26 64,18 50,18 Z" fill="#202124"/>
+                  <path d="M22,86 C22,68 34,62 50,62 C66,62 78,68 78,86 Z" fill="#3c4043"/>
+                </svg>
+              </div>
+              <div class="author-details">
+                <a href="#" class="author-name">Alisha Schor</a>
+                <span class="author-company">MathWorks</span>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- RELATED LEARNING SECTION (Scroll Target) -->
+      <section class="mw-related-section">
+        <h2 class="related-title">Related Learning</h2>
+        
+        <div class="related-cards-grid">
+          <div class="related-card">
+            <div class="related-thumb green-teal">
+              <div class="related-badge-new">NEW</div>
+              <div class="related-badge-number">5</div>
+              <svg viewBox="0 0 100 60" width="100%" height="100%">
+                <path d="M10,45 Q 40,15 90,30" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="6 3"/>
+                <circle cx="50" cy="27" r="6" fill="#e05a00"/>
+              </svg>
+            </div>
+            <div class="related-info">
+              <div class="related-heading-row">
+                <a href="#" class="related-link">Build Simulink Proficiency</a>
+                <svg class="lock-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+              </div>
+              <span class="related-sub">LEARNING PATH: 5 COURSES</span>
+            </div>
+          </div>
+
+          <div class="related-card">
+            <div class="related-thumb green-lime">
+              <svg viewBox="0 0 100 60" width="100%" height="100%">
+                <rect x="10" y="10" width="80" height="40" fill="none" stroke="#ffffff" stroke-width="2"/>
+                <path d="M10,30 Q 30,10 50,30 T 90,30" fill="none" stroke="#ffffff" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="related-info">
+              <a href="#" class="related-link">Control Design Onramp with Simulink</a>
+              <p class="related-desc">Get started quickly with the basics of feedback control design in Simulink.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mw-footer">
+      <div class="mw-header-inner">
+        <p>© 2026 The MathWorks, Inc. | MATLAB and Simulink are registered trademarks of The MathWorks, Inc.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: CERTIFICATE & PROGRESS REPORT       -->
+  <!-- ========================================== -->
+  <div id="modal-cert-report" class="mw-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title">
+    <div class="mw-modal-dialog">
+      
+      <div class="mw-modal-header">
+        <h2 id="cert-modal-title" class="mw-modal-title">Certificate and Progress Report</h2>
+        <button id="btn-close-cert-modal" class="mw-modal-close" aria-label="Close modal">×</button>
+      </div>
+
+      <div class="mw-modal-body">
+        
+        <!-- MODAL SIDEBAR TABS -->
+        <div class="mw-modal-tab-sidebar">
+          <button id="tab-btn-cert" class="modal-tab-btn active">Certificate</button>
+          <button id="tab-btn-report" class="modal-tab-btn">Progress Report</button>
+          
+          <div class="tab-sidebar-note">
+            <a href="#" id="link-share-instructor">Share progress with another user (e.g., your instructor)</a>
+          </div>
+        </div>
+
+        <!-- MODAL MAIN TAB CONTENT -->
+        <div class="mw-modal-tab-content">
+          
+          <!-- TAB 1: CERTIFICATE -->
+          <div id="tab-content-cert" class="tab-pane active">
+            <h3 class="tab-heading">Certificate</h3>
+            <p class="tab-description">
+              You can share a link to a MathWorks certificate or download or print a PDF certificate.
+            </p>
+
+            <div class="share-field-group">
+              <label class="share-label">Share:</label>
+              <div class="share-input-row">
+                <input type="text" id="share-url-input" class="mw-input-text" readonly value="https://matlabacademy.mathworks.com/certificate/check/stateflow-onramp/abdulariffs">
+                <button id="btn-copy-cert-link" class="btn-mw-copy">Copy</button>
+              </div>
+            </div>
+
+            <div class="social-share-row">
+              <a href="#" class="social-icon linkedin" title="Share on LinkedIn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-icon facebook" title="Share on Facebook" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.89h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.89h-2.34v6.99C18.34 21.12 22 16.99 22 12z"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="download-print-section">
+              <label class="share-label">Download or print:</label>
+              <div class="view-pdf-row">
+                <button id="btn-view-pdf" class="btn-mw-primary large">View PDF</button>
+                <span class="pdf-note">Note: PDF link is not shareable.</span>
+              </div>
+            </div>
+
+            <div class="change-version-row">
+              <a href="#" id="link-cert-change-lang">Change language or version</a>
+            </div>
+          </div>
+
+          <!-- TAB 2: PROGRESS REPORT (Requirement 20) -->
+          <div id="tab-content-report" class="tab-pane">
+            <h3 class="tab-heading">Progress Report</h3>
+            
+            <div class="report-header-box">
+              <div class="report-course-name">Stateflow Onramp</div>
+              <div id="report-status-badge" class="report-status-tag completed">Course Completed</div>
+            </div>
+
+            <div class="report-overall-box">
+              <div class="report-progress-top">
+                <span class="report-progress-title">Overall Progress:</span>
+                <span id="report-overall-percent" class="report-progress-num">100%</span>
+              </div>
+              <div class="mw-progress-bar-container large">
+                <div id="report-progress-fill" class="mw-progress-bar-fill completed-100" style="width: 100%;"></div>
+              </div>
+              <div class="report-bar-label">100% COMPLETED</div>
+            </div>
+
+            <div class="report-modules-list">
+              <h4 class="report-sub-title">Module Status</h4>
+              <div id="report-modules-container" class="report-checklist">
+                <!-- Checklist populated via JS -->
+              </div>
+            </div>
+
+            <div id="report-congrats-banner" class="report-congrats-banner">
+              <span class="congrats-icon">🎉</span>
+              <span>Congratulations! You have successfully completed the Stateflow Onramp course.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: CERTIFICATE FULL VIEW / PDF VIEWER  -->
+  <!-- ========================================== -->
+  <div id="modal-cert-viewer" class="cert-viewer-backdrop hidden">
+    <div class="cert-viewer-container">
+      
+      <!-- CERTIFICATE TOOLBAR -->
+      <div class="cert-viewer-toolbar no-print">
+        <button id="btn-close-cert-viewer" class="btn-cert-tool">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+          Back to Dashboard
+        </button>
+
+        <div class="cert-tool-actions">
+          <button id="btn-print-cert" class="btn-cert-tool secondary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+            </svg>
+            Print
+          </button>
+          
+          <button id="btn-download-cert-pdf" class="btn-cert-tool primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+            Download Certificate (PDF)
+          </button>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE SHEET -->
+      <div class="cert-sheet-wrapper">
+        <div id="certificate-printable-area" class="certificate-document">
+          <img src="./certificate-full.png" alt="MathWorks Course Completion Certificate - Abdul Ariff S" class="cert-full-img">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SHARE COURSE SMALL MODAL -->
+  <div id="modal-share-course" class="mw-modal-backdrop hidden">
+    <div class="mw-modal-dialog small">
+      <div class="mw-modal-header">
+        <h3 class="mw-modal-title">Share Course</h3>
+        <button id="btn-close-share-modal" class="mw-modal-close">×</button>
+      </div>
+      <div class="mw-modal-body p-4">
+        <p class="text-sm mb-3">Share this course with colleagues or friends:</p>
+        <div class="share-input-row mb-4">
+          <input type="text" id="share-course-url" class="mw-input-text" readonly value="https://matlabacademy.mathworks.com/details/stateflow-onramp">
+          <button id="btn-copy-course-link" class="btn-mw-copy">Copy</button>
+        </div>
+        <div class="social-share-row justify-center">
+          <button class="social-icon linkedin">LinkedIn</button>
+          <button class="social-icon facebook">Facebook</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS MODAL -->
+  <div id="modal-settings" class="mw-modal-backdrop hidden">
+    <div class="mw-modal-dialog small">
+      <div class="mw-modal-header">
+        <h3 class="mw-modal-title">Course Settings</h3>
+        <button id="btn-close-settings-modal" class="mw-modal-close">×</button>
+      </div>
+      <div class="mw-modal-body p-4">
+        <div class="setting-row mb-3">
+          <label class="setting-label">Language:</label>
+          <select id="setting-lang-select" class="mw-select">
+            <option value="en" selected>English</option>
+            <option value="ja">Japanese</option>
+            <option value="zh">Chinese</option>
+            <option value="es">Spanish</option>
+          </select>
+        </div>
+        <div class="setting-row mb-3">
+          <label class="setting-label">Course Version:</label>
+          <select id="setting-ver-select" class="mw-select">
+            <option value="r2021a" selected>simulinkR2021a</option>
+            <option value="r2023b">simulinkR2023b</option>
+            <option value="r2024a">simulinkR2024a</option>
+          </select>
+        </div>
+        
+        <hr class="my-4 border-gray-200">
+        
+        <!-- Interactive Progress State Switcher for Verification -->
+        <div class="setting-row">
+          <label class="setting-label">Progress View Mode:</label>
+          <div class="flex gap-2 mt-1">
+            <button id="btn-set-100" class="btn-toggle-mode active">100% Completed (Final State)</button>
+            <button id="btn-set-54" class="btn-toggle-mode">54% In Progress (Preview)</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
